@@ -10,25 +10,16 @@ class Song extends DB
 
     function add($data)
     {
-        // Lengkapi Query
-
-        // Mengeksekusi query
         return $this->execute($query);
     }
 
     function delete($id)
     {
-        // Lengkapi Query
-
-        // Mengeksekusi query
         return $this->execute($query);
     }
 
     function statusSong($id)
     {
-        // Lengkapi Query
-
-        // Mengeksekusi query
         return $this->execute($query);
     }
 }

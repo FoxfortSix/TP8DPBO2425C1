@@ -17,7 +17,7 @@ class SongView
 
       $dataSong .= "
               <td>
-                <a href='index.php?id_edit=" . $id .  "' class='btn btn-warning mb-2 mb-md-0 mb-lg-0 mb-xl-0' '>Edit</a>
+                <a href='index.php?id_edit=" . $id .  "' class='mb-2 btn btn-warning mb-md-0 mb-lg-0 mb-xl-0' '>Edit</a>
                 <a href='index.php?id_hapus=" . $id . "' class='btn btn-danger' '>Hapus</a>
               </td></tr>";
     }

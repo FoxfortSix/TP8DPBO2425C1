@@ -10,25 +10,22 @@ class Artist extends DB
 
     function add($data)
     {
-        // Lengkapi Query
+        $query = "INSERT INTO artist (name) VALUES ('$nama')";
 
-        // Mengeksekusi query
         return $this->execute($query);
     }
 
     function delete($id)
     {
-        // Lengkapi Query
+        $query = "DELETE FROM artist WHERE id = $id";
 
-        // Mengeksekusi query
         return $this->execute($query);
     }
 
     function statusArtist($id)
     {
-        // Lengkapi Query
+        $query = "";
 
-        // Mengeksekusi query
         return $this->execute($query);
     }
 }

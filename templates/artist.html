@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>JUDUL</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-  <title>JUDUL</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-info">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link text-white active" aria-current="page" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="artist.php">Artist</a>
-          </li>
-        </ul>
-        <span class="navbar-brand text-white" href="#"><strong>Artist</strong></span>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a
+                class="text-white nav-link active"
+                aria-current="page"
+                href="index.php"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link" href="artist.php">Artist</a>
+            </li>
+          </ul>
+          <span class="text-white navbar-brand" href="#"
+            ><strong>Artist</strong></span
+          >
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container-fluid mt-5 align-center">
-    <div class="col-lg-3 col-md-3 col-sm-12 col-12 mx-auto my-5">
-      <h1 class="text-center pt-3">Tambah Artist</h1>
-      <form action="artist.php" method="POST">
-        <div class="form-row">
-          <div class="form-group mt-3">
-            <label for="tname">Nama Artist</label>
-            <div class="d-flex">
-              <input type="text" class="form-control" name="tname" required />
-              <button type="submit" name="add" class="btn btn-primary" style="margin-left: 20px;">Add</button>
+    <div class="mt-5 container-fluid align-center">
+      <div class="mx-auto my-5 col-lg-3 col-md-3 col-sm-12 col-12">
+        <h1 class="pt-3 text-center">Tambah Artist</h1>
+        <form action="artist.php" method="POST">
+          <div class="form-row">
+            <div class="mt-3 form-group">
+              <label for="tname">Nama Artist</label>
+              <div class="d-flex">
+                <input type="text" class="form-control" name="tname" required />
+                <button
+                  type="submit"
+                  name="add"
+                  class="btn btn-primary"
+                  style="margin-left: 20px"
+                >
+                  Add
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-      </form>
-
+        </form>
+      </div>
+      <h1 class="text-center">Tabel Artist</h1>
+      <div class="mt-4 col-lg-12 col-md-12 col-sm-12 col-12">
+        <table class="table text-center align-middle" border="1">
+          <tr class="table-info">
+            <td scope="col" class="col-2">No</td>
+            <td scope="col" class="col-6">Nama Artist</td>
+            <td scope="col" class="col-2">Negara</td>
+            <td scope="col" class="col-2">Aksi</td>
+          </tr>
+          DATA_TABEL
+        </table>
+      </div>
     </div>
-    <h1 class="text-center">Tabel Artist</h1>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
-      <table class="table text-center align-middle" border="1">
-        <tr class="table-info">
-          <td scope="col" class="col-2">No</td>
-          <td scope="col" class="col-6"> Nama Artist</td>
-          <td scope="col" class="col-2"> Negara</td>
-          <td scope="col" class="col-2"> Aksi</td>
-        </tr>
-        DATA_TABEL
-      </table>
-    </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
