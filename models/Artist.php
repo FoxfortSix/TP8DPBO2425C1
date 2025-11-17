@@ -10,6 +10,7 @@ class Artist extends DB
 
     function add($data)
     {
+        $nama = $data['tname'];
         $query = "INSERT INTO artist (name) VALUES ('$nama')";
 
         return $this->execute($query);
@@ -22,10 +23,16 @@ class Artist extends DB
         return $this->execute($query);
     }
 
-    function statusArtist($id)
+    function getArtistById($id)
     {
-        $query = "";
+        $query = "SELECT * FROM artist WHERE id = $id";
+        return $this->execute($query);
+    }
 
+    function update($id, $data)
+    {
+        $nama = $data['tname'];
+        $query = "UPDATE artist SET name = '$nama' WHERE id = $id";
         return $this->execute($query);
     }
 }

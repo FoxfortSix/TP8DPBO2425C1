@@ -2,6 +2,7 @@
 include_once("config.php");
 include_once("models/Artist.php");
 include_once("views/Artistview.php");
+include_once("views/ArtistEditView.php");
 
 class ArtistController
 {
@@ -32,8 +33,23 @@ class ArtistController
     $this->artist->close();
   }
 
-  function edit($id)
+  function editPage($id)
   {
+    $this->artist->open();
+    $this->artist->getArtistById($id);
+    $data = $this->artist->getResult();
+    $this.artist->close();
+
+    $view = new ArtistEditView();
+    $view->render($data);
+  }
+  
+  function update($data)
+  {
+    $id = $data['id'];
+    $this->artist->open();
+    $this->artist->update($id, $data);
+    $this->artist->close();
   }
 
   function delete($id)

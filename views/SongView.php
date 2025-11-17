@@ -1,4 +1,5 @@
 <?php
+include_once("views/Template.php");
 
 class SongView
 {
@@ -6,14 +7,18 @@ class SongView
   {
     $no = 1;
     $dataSong = null;
-    $dataGrup = null;
+    $dataAlbum = null;
+
+
     foreach ($data['song'] as $val) {
-      list($id, $title, $release_year, $artist_id) = $val;
+      list($id, $title, $release_year, $album_name, $artist_name) = $val;
+      
       $dataSong .= "<tr class='text-center align-middle'>
                 <td>" . $no++ . "</td>
                 <td>" . $title . "</td>
                 <td>" . $release_year . "</td>
-                <td>" . $artist_id . "</td>";
+                <td>" . $album_name . "</td>
+                <td>" . $artist_name . "</td>";
 
       $dataSong .= "
               <td>
@@ -22,15 +27,15 @@ class SongView
               </td></tr>";
     }
 
-    foreach ($data['artist'] as $val) {
-      list($id, $nama, $status) = $val;
-      $dataGrup .= "<option value='" . $id . "'>" . $nama . "</option>";
+    foreach ($data['album'] as $val) {
+      list($id, $title, $artist_name) = $val;
+      $dataAlbum .= "<option value='" . $id . "'>" . $artist_name . " - " . $title . "</option>";
     }
 
     $tpl = new Template("templates/index.html");
 
     $tpl->replace("JUDUL", "Home");
-    $tpl->replace("OPTION", $dataGrup);
+    $tpl->replace("OPTION_ALBUm", $dataAlbum);
     $tpl->replace("DATA_TABEL", $dataSong);
     $tpl->write();
   }
