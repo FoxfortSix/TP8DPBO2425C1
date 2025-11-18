@@ -57,14 +57,13 @@ Ini adalah konsep inti dari tugas ini. Arsitektur program dipisahkan menjadi tig
 
 ![Diagram ER](dokumentasi/Screenshot%202025-11-18%20155724.png)
 
-````
 ---
 
 ## Struktur Proyek
 
 Struktur direktori dirancang untuk memisahkan setiap komponen MVC dengan jelas.
 
-```text
+```
 .
 ├── album.php
 ├── artist.php
@@ -108,7 +107,7 @@ Struktur direktori dirancang untuk memisahkan setiap komponen MVC dengan jelas.
     ├── playlist_detail.html
     ├── playlist_edit.html
     └── song_edit.html
-````
+```
 
 ---
 
