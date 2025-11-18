@@ -38,7 +38,7 @@ class ArtistController
     $this->artist->open();
     $this->artist->getArtistById($id);
     $data = $this->artist->getResult();
-    $this.artist->close();
+    $this->artist->close();
 
     $view = new ArtistEditView();
     $view->render($data);

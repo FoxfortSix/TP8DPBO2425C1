@@ -14,6 +14,10 @@ if (isset($_POST['add'])) {
     $playlist->update($_POST);
     header("location:playlist.php");
 
+} else if (isset($_POST['add_song'])) {
+    $playlist->addSongToPlaylist($_POST);
+    header("location:playlist.php?id_detail=" . $_POST['id_playlist']);
+
 } else if (!empty($_GET['id_hapus'])) {
     $id = $_GET['id_hapus'];
     $playlist->delete($id);
@@ -23,6 +27,16 @@ if (isset($_POST['add'])) {
     $id = $_GET['id_edit'];
     $playlist->editPage($id);
     
+} else if (!empty($_GET['id_detail'])) {
+    $id = $_GET['id_detail'];
+    $playlist->detailPage($id);
+
+} else if (!empty($_GET['id_hapus_lagu']) && !empty($_GET['id_playlist'])) {
+    $id_lagu = $_GET['id_hapus_lagu'];
+    $id_playlist = $_GET['id_playlist'];
+    $playlist->removeSongFromPlaylist($id_playlist, $id_lagu);
+    header("location:playlist.php?id_detail=" . $id_playlist);
+
 } else {
     $playlist->index();
 }

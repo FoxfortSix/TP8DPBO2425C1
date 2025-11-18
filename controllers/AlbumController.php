@@ -56,7 +56,7 @@ class AlbumController
     }
     
     $this->album->close();
-    $this.artist->close();
+    $this->artist->close();
 
     $data = array(
       'album' => $data_album,
@@ -77,7 +77,6 @@ class AlbumController
 
   function delete($id)
   {
-    // ... (fungsi delete() tetap sama) ...
     $this->album->open();
     $this->album->delete($id);
     $this->album->close();

@@ -6,11 +6,11 @@ class ArtistView
     $no = 1;
     $dataArtist = null;
     foreach ($data as $val) {
-        list($id, $nama, $status) = $val;
+        list($id, $nama, $country) = $val;
         $dataArtist .= "<tr>
                     <td>" . $no++ . "</td>
                     <td>" . $nama . "</td>
-                    <td>" . $status . "</td>
+                    <td>" . $country . "</td> 
                     <td>
                     <a href='artist.php?id_edit=" . $id .  "' class='btn btn-warning''>Edit</a>
                     <a href='artist.php?id_hapus=" . $id . "' class='btn btn-danger''>Hapus</a>

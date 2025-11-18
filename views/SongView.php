@@ -35,7 +35,7 @@ class SongView
     $tpl = new Template("templates/index.html");
 
     $tpl->replace("JUDUL", "Home");
-    $tpl->replace("OPTION_ALBUm", $dataAlbum);
+    $tpl->replace("OPTION_ALBUM", $dataAlbum);
     $tpl->replace("DATA_TABEL", $dataSong);
     $tpl->write();
   }

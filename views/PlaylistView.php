@@ -15,6 +15,7 @@ class PlaylistView
                     <td>" . $name . "</td>
                     <td>" . $date_created . "</td>
                     <td>
+                    <a href='playlist.php?id_detail=" . $id .  "' class='btn btn-info'>Detail</a>
                     <a href='playlist.php?id_edit=" . $id .  "' class='btn btn-warning''>Edit</a>
                     <a href='playlist.php?id_hapus=" . $id . "' class='btn btn-danger''>Hapus</a>
                     </td>
