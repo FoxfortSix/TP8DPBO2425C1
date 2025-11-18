@@ -12,6 +12,8 @@ class AlbumController
   function __construct()
   {
     $this->album = new Album(Config::$db_host, Config::$db_user, Config::$db_pass, Config::$db_name);
+    
+    // Load Model Artist untuk keperluan dropdown
     include_once("models/Artist.php");
     $this->artist = new Artist(Config::$db_host, Config::$db_user, Config::$db_pass, Config::$db_name);
   }
@@ -19,17 +21,29 @@ class AlbumController
   public function index()
   {
     $this->album->open();
+    $this->artist->open(); // Buka koneksi artist
+    
     $this->album->getAlbum();
-    $this->album->getArtist();
-    $data = array('album' => array(), 'artist' => array());
+    // PERBAIKAN: Gunakan model Artist, bukan method di dalam Album
+    $this->artist->getArtist(); 
+    
+    $data = array(
+      'album' => array(),
+      'artist' => array()
+    );
+
     while ($row = $this->album->getResult()) {
       array_push($data['album'], $row);
     }
-    $this->album->getArtist();
-    while ($row = $this->album->getResult()) {
+    
+    // Ambil hasil dari model Artist
+    while ($row = $this->artist->getResult()) {
       array_push($data['artist'], $row);
     }
+
     $this->album->close();
+    $this->artist->close(); // Tutup koneksi artist
+
     $view = new AlbumView();
     $view->render($data);
   }

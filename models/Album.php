@@ -4,6 +4,7 @@ class Album extends DB
 {
     function getAlbum()
     {
+        // Mengambil data album beserta nama artist
         $query = "SELECT album.id, album.title, album.release_year, artist.name AS artist_name 
                   FROM album 
                   JOIN artist ON album.artist_id = artist.id 
@@ -12,11 +13,7 @@ class Album extends DB
         return $this->execute($query);
     }
 
-    function getArtist()
-    {
-        $query = "SELECT * FROM artist";
-        return $this->execute($query);
-    }
+    // Fungsi getArtist() DIHAPUS karena sudah ditangani oleh ArtistController & ArtistModel
 
     function add($data)
     {
@@ -33,7 +30,6 @@ class Album extends DB
     function delete($id)
     {
         $query = "DELETE FROM album WHERE id = $id";
-
         return $this->execute($query);
     }
 
