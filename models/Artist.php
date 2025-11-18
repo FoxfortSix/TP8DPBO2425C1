@@ -11,7 +11,9 @@ class Artist extends DB
     function add($data)
     {
         $nama = $data['tname'];
-        $query = "INSERT INTO artist (name) VALUES ('$nama')";
+        $country = $data['tcountry']; 
+        
+        $query = "INSERT INTO artist (name, country) VALUES ('$nama', '$country')";
 
         return $this->execute($query);
     }
@@ -32,7 +34,10 @@ class Artist extends DB
     function update($id, $data)
     {
         $nama = $data['tname'];
-        $query = "UPDATE artist SET name = '$nama' WHERE id = $id";
+        $country = $data['tcountry'];
+
+        $query = "UPDATE artist SET name = '$nama', country = '$country' WHERE id = $id";
+        
         return $this->execute($query);
     }
 }
