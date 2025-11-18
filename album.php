@@ -10,6 +10,10 @@ if (isset($_POST['add'])) {
     $album->add($_POST);
     header("location:album.php");
 
+} else if (isset($_POST['update'])) {
+    $album->update($_POST);
+    header("location:album.php");
+
 } else if (!empty($_GET['id_hapus'])) {
     $id = $_GET['id_hapus'];
     $album->delete($id);
@@ -17,8 +21,7 @@ if (isset($_POST['add'])) {
 
 } else if (!empty($_GET['id_edit'])) {
     $id = $_GET['id_edit'];
-    $album->edit($id);
-    header("location:album.php");
+    $album->editPage($id);
     
 } else {
     $album->index();

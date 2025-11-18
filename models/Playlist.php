@@ -11,9 +11,7 @@ class Playlist extends DB
     function add($data)
     {
         $nama = $data['tname'];
-
         $query = "INSERT INTO playlist (name) VALUES ('$nama')";
-
         return $this->execute($query);
     }
 
@@ -23,9 +21,16 @@ class Playlist extends DB
         return $this->execute($query);
     }
 
-    function statusPlaylist($id)
+    function getPlaylistById($id)
     {
-        $query = "";
+        $query = "SELECT * FROM playlist WHERE id = $id";
+        return $this->execute($query);
+    }
+
+    function update($id, $data)
+    {
+        $nama = $data['tname'];
+        $query = "UPDATE playlist SET name = '$nama' WHERE id = $id";
         return $this->execute($query);
     }
 }

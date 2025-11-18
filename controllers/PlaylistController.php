@@ -2,6 +2,7 @@
 include_once("config.php");
 include_once("models/Playlist.php");
 include_once("views/PlaylistView.php");
+include_once("views/PlaylistEditView.php");
 
 class PlaylistController
 {
@@ -15,19 +16,12 @@ class PlaylistController
   public function index()
   {
     $this->playlist->open();
-    
     $this->playlist->getPlaylist();
-    
-    $data = array(
-      'playlist' => array()
-    );
-
+    $data = array('playlist' => array());
     while ($row = $this->playlist->getResult()) {
       array_push($data['playlist'], $row);
     }
-    
     $this->playlist->close();
-
     $view = new PlaylistView();
     $view->render($data);
   }
@@ -39,8 +33,23 @@ class PlaylistController
     $this->playlist->close();
   }
 
-  function edit($id)
+  function editPage($id)
   {
+    $this->playlist->open();
+    $this->playlist->getPlaylistById($id);
+    $data = $this->playlist->getResult();
+    $this->playlist->close();
+
+    $view = new PlaylistEditView();
+    $view->render($data);
+  }
+  
+  function update($data)
+  {
+    $id = $data['id'];
+    $this->playlist->open();
+    $this->playlist->update($id, $data);
+    $this->playlist->close();
   }
 
   function delete($id)

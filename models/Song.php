@@ -4,7 +4,6 @@ class Song extends DB
 {
     function getSong()
     {
-        // Query untuk mengambil data lagu, nama album, dan nama artist
         $query = "SELECT 
                     song.id, 
                     song.title, 
@@ -21,7 +20,6 @@ class Song extends DB
 
     function getAlbum()
     {
-        // Query untuk mengambil data album (untuk dropdown)
         $query = "SELECT album.id, album.title, artist.name 
                   FROM album 
                   JOIN artist ON album.artist_id = artist.id
@@ -33,7 +31,7 @@ class Song extends DB
     function add($data)
     {
         $judul = $data['tjudul'];
-        $tahun_rilis = $data['tp_enerbit']; // Sesuaikan dengan name di HTML
+        $tahun_rilis = $data['tpenerbit']; 
         $album_id = $data['cmbalbum'];
 
         $query = "INSERT INTO song (title, release_year, album_id) 
@@ -48,5 +46,24 @@ class Song extends DB
         return $this->execute($query);
     }
 
-    // Fungsi lain bisa ditambahkan untuk update
+    function getSongById($id)
+    {
+        $query = "SELECT * FROM song WHERE id = $id";
+        return $this->execute($query);
+    }
+
+    function update($id, $data)
+    {
+        $judul = $data['tjudul'];
+        $tahun_rilis = $data['tpenerbit'];
+        $album_id = $data['cmbalbum'];
+
+        $query = "UPDATE song SET 
+                    title = '$judul', 
+                    release_year = '$tahun_rilis', 
+                    album_id = '$album_id' 
+                  WHERE id = $id";
+        
+        return $this->execute($query);
+    }
 }
